@@ -5,8 +5,8 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Ventana extends JFrame {
     private PanelPrincipal panel0;
-    public static int ancho = 940;
-    public static int largo = 560;
+    public static int ancho = 1300;
+    public static int largo = 700;
     
     public Ventana() {
         this.setLayout(new BorderLayout());
