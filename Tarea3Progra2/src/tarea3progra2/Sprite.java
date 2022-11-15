@@ -4,20 +4,20 @@ import java.awt.Graphics;
 
 public class Sprite extends Bebida {
     public Sprite(int serie, int x, int y) {
-        super(serie, x ,y);
+        super(serie, x, y);
     }
     
     public void paint (Graphics g){
          
         g.setColor(Color.green.darker());
-        g.fillRect(x,y,100,150);        //ajustar tamaño
+        g.fillRect(x,y,50,80);        //ajustar tamaño
         g.setColor(Color.white);
-        g.fillOval(x+55, y+10,30, 30);  
+        g.fillOval(x+30, y+10,15, 15);  
         g.setColor(Color.yellow);               //ajustar tamaño
-        g.fillOval(x+45, y+50,30,30);
+        g.fillOval(x+30, y+50,15,15);
         g.setColor(Color.cyan);
-        g.fillOval(x+55,y+90,30,30);
-        g.drawString("#" + this.getSerie(), x + 45, y + 140);
+        g.fillOval(x+15,y+30,15,15);
+        g.drawString("#" + this.getSerie(), x + 15, y + 75);
     }
     
     public String beber() {

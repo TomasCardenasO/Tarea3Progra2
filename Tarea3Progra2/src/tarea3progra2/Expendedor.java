@@ -16,11 +16,11 @@ public class Expendedor {
         depositoCocaCola = new Deposito();
         depositoVuelto = new DepositoDeVuelto();
         for(int i = 0; i < numBebidas; i++) {
-            Fanta f = new Fanta(i);
+            Fanta f = new Fanta(i, 0, 0);
             depositoFanta.addBebida(f);
-            Sprite s = new Sprite(i + 1000);
+            Sprite s = new Sprite(i + 1000, 0, 0);
             depositoSprite.addBebida(s);
-            CocaCola c = new CocaCola(i + 2000);
+            CocaCola c = new CocaCola(i + 2000, 0, 0);
             depositoCocaCola.addBebida(c);
         }
         this.precioBebidas = precioBebidas;
