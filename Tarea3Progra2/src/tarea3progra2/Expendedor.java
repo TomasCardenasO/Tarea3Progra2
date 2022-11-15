@@ -41,7 +41,7 @@ public class Expendedor {
                         } else {
                             vuelto = m.getValor() - precioBebidas;
                             for(int i = 0; i < vuelto/100; i++) {
-                                Moneda100 mon100 = new Moneda100();
+                                Moneda100 mon100 = new Moneda100(i, 100, 100); //posicion random
                                 depositoVuelto.addMoneda(mon100);
                             }
                             return b;
@@ -59,7 +59,7 @@ public class Expendedor {
                         } else {
                             vuelto = m.getValor() - precioBebidas;
                             for(int i = 0; i < vuelto/100; i++) {
-                                Moneda100 mon100 = new Moneda100();
+                                Moneda100 mon100 = new Moneda100(i, 100, 100);
                                 depositoVuelto.addMoneda(mon100);
                             }
                             return b;
@@ -77,7 +77,7 @@ public class Expendedor {
                         } else {
                             vuelto = m.getValor() - precioBebidas;
                             for(int i = 0; i < vuelto/100; i++) {
-                                Moneda100 mon100 = new Moneda100();
+                                Moneda100 mon100 = new Moneda100(i, 100, 100);
                                 depositoVuelto.addMoneda(mon100);
                             }
                             return b;

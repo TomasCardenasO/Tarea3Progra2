@@ -4,11 +4,11 @@ public class Tarea3Progra2 {
 
     public static void main(String[] args) {
         //crear expendedor y monedas 
-        tarea3progra2.Expendedor expendedor = new tarea3progra2.Expendedor(2, 400);
-        Moneda1000 moneda1000 = new Moneda1000();
-        Moneda500 moneda500 = new Moneda500();
-        Moneda400 moneda400 = new Moneda400();
-        Moneda100 moneda100 = new Moneda100();
+        /*tarea3progra2.Expendedor expendedor = new tarea3progra2.Expendedor(2, 400);
+        Moneda1000 moneda1000 = new Moneda1000(1, 10, 100);
+        Moneda500 moneda500 = new Moneda500(2, 70, 100);
+        Moneda400 moneda400 = new Moneda400(3, 130, 100);
+        Moneda100 moneda100 = new Moneda100(4, 190, 100);
         Moneda monedaNull = null;
         
         //compra una bebida satisfactoriamente
@@ -35,7 +35,8 @@ public class Tarea3Progra2 {
         System.out.println("- Jordan fue a comprar una fanta con 1000 pesos...");
         tarea3progra2.Comprador jordan = new tarea3progra2.Comprador(moneda1000, 1, expendedor);
         System.out.println("- Jordan se tomo una " + jordan.queBebiste() + " y obtuvo " + jordan.cuantoVuelto() + " pesos de vuelto.");
-        System.out.println("- Observamos bien la moneda de 1000... (" + moneda1000.toString() + "). Que moneda mas rara.");
+        System.out.println("- Observamos bien la moneda de 1000... (" + moneda1000.toString() + "). Que moneda mas rara.");*/
+        Ventana v = new Ventana();
     }
     
 }
