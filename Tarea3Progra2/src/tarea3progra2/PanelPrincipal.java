@@ -22,6 +22,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     } 
     public void paint(Graphics g) {
         super.paint(g);
+        g.drawString("Amarillo = 100$, Naranjo = 400$, Gris = 500$, Verde = 1000$.", 10, Ventana.largo - 50);
         moneda100.paint(g);
         moneda400.paint(g);
         moneda500.paint(g);
