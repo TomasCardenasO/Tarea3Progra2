@@ -11,9 +11,9 @@ public class Expendedor {
     private int precioBebidas;
     
     public Expendedor(int numBebidas, int precioBebidas) {
-        depositoFanta = new Deposito();
-        depositoSprite= new Deposito();
-        depositoCocaCola = new Deposito();
+        depositoFanta = new Deposito(0, 0); //Editar posicion
+        depositoSprite= new Deposito(0,0);
+        depositoCocaCola = new Deposito(0,0);
         depositoVuelto = new DepositoDeVuelto();
         for(int i = 0; i < numBebidas; i++) {
             Fanta f = new Fanta(i, 0, 0);
