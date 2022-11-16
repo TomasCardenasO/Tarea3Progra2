@@ -13,7 +13,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private CocaCola CocaCola;
     private Fanta Fanta;
     private Sprite Sprite;
-    private Deposito depositoPrueba;
+    private Deposito depositoFanta;
     
     public PanelPrincipal() { 
         /*exp = new Expendedor(5, 800); 
@@ -25,7 +25,11 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         CocaCola = new CocaCola(1,500,100); 
         Fanta = new Fanta(2,650,100);
         Sprite = new Sprite(3,800,100);
-        depositoPrueba = new Deposito(500, 300);
+        depositoFanta = new Deposito(500, 200);
+        for(int i = 0; i < 7; i++) {
+            Fanta f = new Fanta(i, 0, 0);
+            depositoFanta.addBebida(f);
+        }
         this.setBackground(Color.white); 
     } 
     public void paint(Graphics g) {
@@ -38,7 +42,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         CocaCola.paint(g);
         Fanta.paint(g);
         Sprite.paint(g);
-        depositoPrueba.paint(g);
+        depositoFanta.paint(g);
         /*com.paint(g);
         exp.paint(g);*/
     }

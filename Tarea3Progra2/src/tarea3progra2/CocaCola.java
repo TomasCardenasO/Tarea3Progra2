@@ -10,9 +10,11 @@ public class CocaCola extends Bebida {
     public void paint (Graphics g){
          
         g.setColor(Color.red.darker());
-        g.fillRect(x,y, 50, 80);        //ajustar tamaño
+        g.fillRect(x,y, 50, 80);
+        g.setColor(Color.black);
+        g.drawRect(x, y, 50, 80);
         g.setColor(Color.white);
-        g.fillOval(x+30, y+10,15, 15);              //ajustar tamaño
+        g.fillOval(x+30, y+10,15, 15);
         g.fillOval(x+30, y+50,15,15);
         g.fillOval(x+15,y+30,15,15);
         g.drawString("#" + this.getSerie(), x + 15, y + 75);
