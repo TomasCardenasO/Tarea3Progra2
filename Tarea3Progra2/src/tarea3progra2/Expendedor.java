@@ -4,8 +4,10 @@ import exceptions.PagoIncorrectoException;
 import exceptions.PagoInsuficienteException;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
-public class Expendedor {
+public class Expendedor{
     private Deposito depositoFanta;
     private Deposito depositoSprite;
     private Deposito depositoCocaCola;
@@ -14,6 +16,7 @@ public class Expendedor {
     private Bebida depositoBebida;
     private int precioBebidas;
     public int x, y;
+    private Image banner;
     
     public Expendedor(int x, int y, int numBebidas, int precioBebidas) {
         this.x = x;
@@ -115,13 +118,21 @@ public class Expendedor {
         return depositoVuelto.getMoneda();
     }
     public void paint(Graphics g) {
+        banner = new ImageIcon(getClass().getResource("/Imagenes/BannerCocaCola.png")).getImage();
         g.setColor(Color.black);
-        g.fillRect(x, y, 250, 520);
+        g.fillRect(x, y, 370, 600);
         depositoFanta.paint(g);
         depositoSprite.paint(g);
         depositoCocaCola.paint(g);
+        g.setColor (new Color(0,247,255,100));
+        g.fillRect(x+20,y+20,210,370);
         g.setColor(Color.gray);
         g.fillRect(x + 90, y + 410, 70, 90);
+        g.fillRect(x+290,y+200,20,50);
+        g.fillRect(x+260,y+300,70,30);
+        g.setColor(Color.black);
+        g.fillRect(x+295,y+210,10,30);
+        g.drawImage(banner, x+5, y+510, 360, 85,null);
         if(depositoBebida != null) {
             depositoBebida.paint(g);   
         }

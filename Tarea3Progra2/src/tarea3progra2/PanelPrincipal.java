@@ -4,27 +4,21 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana 
-    private Comprador com; 
+    //private Comprador com; 
     private Expendedor exp; 
     private Moneda100 moneda100;
     private Moneda400 moneda400;
     private Moneda500 moneda500;
     private Moneda1000 moneda1000;
-    private CocaCola CocaCola;
-    private Fanta Fanta;
-    private Sprite Sprite;
-    
+    //private Comprador com;
+
     public PanelPrincipal() { 
-        exp = new Expendedor(700, 100, 5, 800); 
-        /*com = new Comprador();*/
+        exp = new Expendedor(100, 30, 5, 800); 
+        //com = new Comprador();
         moneda100 = new Moneda100(5, 50, 200); //parametros random
         moneda400 = new Moneda400(6, 100, 200);
         moneda500 = new Moneda500(7, 150, 200);
-        moneda1000 = new Moneda1000(8, 200, 200);
-        CocaCola = new CocaCola(1,500,100); 
-        Fanta = new Fanta(2,650,100);
-        Sprite = new Sprite(3,800,100);
-        
+        moneda1000 = new Moneda1000(8, 200, 200);      
         this.setBackground(Color.white); 
     } 
     public void paint(Graphics g) {
@@ -34,11 +28,8 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         moneda400.paint(g);
         moneda500.paint(g);
         moneda1000.paint(g);
-        CocaCola.paint(g);
-        Fanta.paint(g);
-        Sprite.paint(g);
         exp.paint(g);
-        /*com.paint(g);*/
+        //com.paint(g);
     }
     
     
