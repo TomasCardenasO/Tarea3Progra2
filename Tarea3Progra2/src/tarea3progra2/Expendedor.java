@@ -2,19 +2,27 @@ package tarea3progra2;
 import exceptions.NoHayBebidaException;
 import exceptions.PagoIncorrectoException;
 import exceptions.PagoInsuficienteException;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Expendedor {
     private Deposito depositoFanta;
     private Deposito depositoSprite;
     private Deposito depositoCocaCola;
     private DepositoDeVuelto depositoVuelto;
+    private DepositoDeVuelto depositoTragaMonedas;
+    private Bebida depositoBebida;
     private int precioBebidas;
+    public int x, y;
     
-    public Expendedor(int numBebidas, int precioBebidas) {
-        depositoFanta = new Deposito(0, 0); //Editar posicion
-        depositoSprite= new Deposito(0,0);
-        depositoCocaCola = new Deposito(0,0);
+    public Expendedor(int x, int y, int numBebidas, int precioBebidas) {
+        this.x = x;
+        this.y = y;
+        depositoFanta = new Deposito(this.x + 20, this.y + 20);
+        depositoSprite= new Deposito(this.x + 90,this.y + 20);
+        depositoCocaCola = new Deposito(this.x + 160,this.y + 20);
         depositoVuelto = new DepositoDeVuelto();
+        depositoTragaMonedas = new DepositoDeVuelto();
         for(int i = 0; i < numBebidas; i++) {
             Fanta f = new Fanta(i, 0, 0);
             depositoFanta.addBebida(f);
@@ -25,7 +33,7 @@ public class Expendedor {
         }
         this.precioBebidas = precioBebidas;
     }
-    public Bebida comprarBebida(Moneda m, int cual) throws NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException {
+    public void comprarBebida(Moneda m, int cual) throws NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException {
         int vuelto;
         Bebida b;
         if(m == null) {
@@ -44,7 +52,10 @@ public class Expendedor {
                                 Moneda100 mon100 = new Moneda100(i, 100, 100); //posicion random
                                 depositoVuelto.addMoneda(mon100);
                             }
-                            return b;
+                            depositoBebida = b;
+                            depositoBebida.x = this.x + 100;
+                            depositoBebida.y = this.y + 420;
+                            depositoTragaMonedas.addMoneda(m);
                         }
                     } else {
                         depositoVuelto.addMoneda(m);
@@ -62,7 +73,10 @@ public class Expendedor {
                                 Moneda100 mon100 = new Moneda100(i, 100, 100);
                                 depositoVuelto.addMoneda(mon100);
                             }
-                            return b;
+                            depositoBebida = b;
+                            depositoBebida.x = this.x + 100;
+                            depositoBebida.y = this.y + 420;
+                            depositoTragaMonedas.addMoneda(m);
                         }
                     } else {
                         depositoVuelto.addMoneda(m);
@@ -80,7 +94,10 @@ public class Expendedor {
                                 Moneda100 mon100 = new Moneda100(i, 100, 100);
                                 depositoVuelto.addMoneda(mon100);
                             }
-                            return b;
+                            depositoBebida = b;
+                            depositoBebida.x = this.x + 100;
+                            depositoBebida.y = this.y + 420;
+                            depositoTragaMonedas.addMoneda(m);
                         }
                     } else {
                         depositoVuelto.addMoneda(m);
@@ -96,5 +113,17 @@ public class Expendedor {
     }
     public Moneda getVuelto() {
         return depositoVuelto.getMoneda();
+    }
+    public void paint(Graphics g) {
+        g.setColor(Color.black);
+        g.fillRect(x, y, 250, 520);
+        depositoFanta.paint(g);
+        depositoSprite.paint(g);
+        depositoCocaCola.paint(g);
+        g.setColor(Color.gray);
+        g.fillRect(x + 90, y + 410, 70, 90);
+        if(depositoBebida != null) {
+            depositoBebida.paint(g);   
+        }
     }
 }

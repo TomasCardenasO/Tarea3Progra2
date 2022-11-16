@@ -35,6 +35,9 @@ public class Comprador {
             System.out.println(noHay.getMessage());
         }
     }
+    /*public void getBebida() {
+        para retirar la bebida del deposito
+    }*/
     public int cuantoVuelto() {
         return vuelto;
     }
