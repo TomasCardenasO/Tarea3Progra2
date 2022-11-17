@@ -12,6 +12,8 @@ public class Ventana extends JFrame {
         this.setLayout(new BorderLayout());
         panel0 = new PanelPrincipal();
         this.add(panel0, BorderLayout.CENTER);
+        setTitle("Máquina Expendedora");
+        
         
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(ancho,largo);

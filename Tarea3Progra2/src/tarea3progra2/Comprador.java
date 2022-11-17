@@ -6,7 +6,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
 
-/*public class Comprador {
+public class Comprador {
     private String queBebio;
     private int vuelto;
     private Image mano;
@@ -54,4 +54,3 @@ import java.awt.Graphics;
         g.drawImage(mano, 800, 400, 400, 400,null);
     }
 }
-*/

@@ -36,7 +36,7 @@ public class Expendedor{
         }
         this.precioBebidas = precioBebidas;
     }
-    public void comprarBebida(Moneda m, int cual) throws NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException {
+    public Bebida comprarBebida(Moneda m, int cual) throws NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException {
         int vuelto;
         Bebida b;
         if(m == null) {
