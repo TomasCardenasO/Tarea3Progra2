@@ -4,7 +4,6 @@ import java.awt.Graphics;
 public abstract class Moneda {
     private int serie;
     public int x, y;
-    public int valor;
     
     public Moneda(int serie, int x, int y) {
         this.serie = serie;

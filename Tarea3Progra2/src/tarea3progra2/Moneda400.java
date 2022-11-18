@@ -3,11 +3,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Moneda400 extends Moneda {
+    private int valor = 400;
+    
     public Moneda400(int serie, int x, int y) {
         super(serie, x, y);
     }
     public int getValor() {
-        return 400;
+        return valor;
     }
     public void paint(Graphics g) {
         g.setColor(Color.orange);
