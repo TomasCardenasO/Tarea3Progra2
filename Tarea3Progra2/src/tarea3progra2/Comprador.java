@@ -10,6 +10,7 @@ public class Comprador {
     private String queBebio;
     private int vuelto;
     private Image mano;
+    public Bebida bebida;
     Moneda m;
     Expendedor exp;
     
@@ -17,9 +18,6 @@ public class Comprador {
     public Comprador(Expendedor exp) {
         m = null;
         this.exp = exp;
-    }
-    public void setMoneda(Moneda m) {
-        this.m = m;
     }
     public void comprar(int cualBebida) {
         try {
@@ -56,7 +54,12 @@ public class Comprador {
         m = moneda;
     }
     public void getBebida() {
-        //para retirar la bebida del deposito
+        if(exp.depositoBebida != null) {
+            bebida = exp.depositoBebida;
+            exp.depositoBebida = null;
+            bebida.x = 850;
+            bebida.y = 500;
+        }
     }
     public void getVuelto() {
             vuelto = 0;
@@ -82,6 +85,9 @@ public class Comprador {
         g.drawImage(mano, 800, 400, 400, 400,null);
         if(m != null) {
             m.paint(g);
+        }
+        if(bebida != null) {
+            bebida.paint(g);
         }
     }
 }

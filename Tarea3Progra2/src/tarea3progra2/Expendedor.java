@@ -13,7 +13,7 @@ public class Expendedor{
     private Deposito depositoCocaCola;
     private DepositoDeVuelto depositoVuelto;
     private DepositoDeVuelto depositoTragaMonedas;
-    private Bebida depositoBebida;
+    public Bebida depositoBebida;
     private int precioBebidas;
     public int x, y;
     private Image banner;

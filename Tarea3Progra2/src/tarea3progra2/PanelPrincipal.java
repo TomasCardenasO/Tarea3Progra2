@@ -12,10 +12,10 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private Comprador com;
  
     public PanelPrincipal() { 
+        this.setBackground(Color.white);
+        Botones();
         exp = new Expendedor(100, 30, 5, 400);
         com = new Comprador(exp);
-        this.setBackground(Color.white); 
-        Botones();
     } 
     public void paint(Graphics g) {
         super.paint(g);
@@ -53,6 +53,11 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         Boton boton1000 = new Boton("1000", this);
         boton1000.setBounds(1000,400,100,50);
         this.add(boton1000);
+        
+        this.setLayout(null);
+        Boton botonRetirar = new Boton("Retirar", this);
+        botonRetirar.setBounds(10,480,80,30);
+        this.add(botonRetirar);
     } 
     private class Boton extends JButton implements MouseListener {
         private int x;
@@ -78,6 +83,9 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
             }
             else if(s.equals("1000") == true){
                 x = 6;
+            }
+            else if(s.equals("Retirar") == true){
+                x = 7;
             }
         }
         public void mouseClicked(MouseEvent e) {
@@ -111,6 +119,10 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
                 panel.repaint();
                 System.out.println(com.m.getValor());
 
+            }
+            else if(x == 7) {
+                com.getBebida();
+                panel.repaint();
             }
             
         }
