@@ -14,17 +14,19 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private Moneda400 moneda400;
     private Moneda500 moneda500;
     private Moneda1000 moneda1000;
+    private Moneda0 moneda0;
     private Comprador com;
  
 
 
     public PanelPrincipal() { 
         exp = new Expendedor(100, 30, 5, 800); 
-        //com = new Comprador();
-        moneda100 = new Moneda100(5, 50, 200); //parametros random
-        moneda400 = new Moneda400(6, 100, 200);
-        moneda500 = new Moneda500(7, 150, 200);
-        moneda1000 = new Moneda1000(8, 200, 200);      
+        moneda100 = new Moneda100(4, 50, 200); //parametros random
+        moneda400 = new Moneda400(1, 50, 250);
+        moneda500 = new Moneda500(7, 50, 300);
+        moneda1000 = new Moneda1000(8, 50, 440); 
+        moneda0 = new Moneda0(0,0,0);
+        com = new Comprador(moneda0,0, exp);
         this.setBackground(Color.white); 
         Botones();
     } 
@@ -35,8 +37,9 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         moneda400.paint(g);
         moneda500.paint(g);
         moneda1000.paint(g);
+
         exp.paint(g);
-        //com.paint(g);
+        com.paint(g);
     }
     
     public void Botones(){
@@ -47,12 +50,12 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
       
         this.setLayout(null);
         Boton botonSprite = new Boton("Sprite");
-        botonSprite.setBounds(1000,300,100,50);
+        botonSprite.setBounds(1000,150,100,50);
         this.add(botonSprite);
         
         this.setLayout(null);
         Boton botonCoca = new Boton("CocaCola");
-        botonCoca.setBounds(1000,500,100,50);
+        botonCoca.setBounds(1000,200,100,50);
         this.add(botonCoca);
         
         
@@ -80,11 +83,21 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
             else if(s.equals("Sprite") == true){
                 x = 3;
             }
+            else if(s.equals("") == true){
+                x = 3;
+            }
+            else if(s.equals("Sprite") == true){
+                x = 3;
+            }
+            else if(s.equals("Sprite") == true){
+                x = 3;
+            }
         
         }
         public void mouseClicked(MouseEvent e) {
             if(x == 1){
                 System.out.println("Ti-tir3saasassasasasasaas3ii");
+                moneda1000.ChangeSerie(2999);
 
             }
             if(x == 2){

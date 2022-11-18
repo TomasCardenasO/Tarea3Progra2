@@ -13,6 +13,9 @@ public abstract class Moneda {
     public int getSerie() {
         return this.serie;
     }
+    public void ChangeSerie(int n){
+        serie = n;
+    }
     public abstract int getValor();
     
     public abstract void paint(Graphics g);
