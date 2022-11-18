@@ -8,7 +8,6 @@ import java.awt.event.MouseListener;
 
 
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana 
-    //private Comprador com; 
     private Expendedor exp; 
     private Moneda100 moneda100;
     private Moneda400 moneda400;
@@ -97,7 +96,6 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         public void mouseClicked(MouseEvent e) {
             if(x == 1){
                 System.out.println("Ti-tir3saasassasasasasaas3ii");
-                moneda1000.ChangeSerie(2999);
 
             }
             if(x == 2){

@@ -10,8 +10,17 @@ public class Comprador {
     private String queBebio;
     private int vuelto;
     private Image mano;
+    Moneda m;
+    int cualBebida;
+    Expendedor exp;
+    
             
     public Comprador(Moneda m, int cualBebida, Expendedor exp) {
+        this.cualBebida = cualBebida;
+        this.m = m;
+        this.exp = exp;
+    }
+    public void Funciones(){
         try {
             vuelto = 0;
             Moneda monedaVuelto;
@@ -39,6 +48,7 @@ public class Comprador {
             vuelto = monedaVuelto.getValor();
             System.out.println(noHay.getMessage());
         }
+        
     }
     public void getBebida() {
         //para retirar la bebida del deposito
