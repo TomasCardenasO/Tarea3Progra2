@@ -11,31 +11,19 @@ public class Comprador {
     private int vuelto;
     private Image mano;
     Moneda m;
-    int cualBebida;
     Expendedor exp;
     
             
-    public Comprador(Moneda m, int cualBebida, Expendedor exp) {
-        this.cualBebida = cualBebida;
-        this.m = m;
+    public Comprador(Expendedor exp) {
+        m = null;
         this.exp = exp;
     }
-    public void Funciones(){
+    public void setMoneda(Moneda m) {
+        this.m = m;
+    }
+    public void comprar(int cualBebida) {
         try {
-            vuelto = 0;
-            Moneda monedaVuelto;
-            Boolean t = true;
-            Bebida b = exp.comprarBebida(m, cualBebida);
-            queBebio = b.beber();
-            while(t) {
-                monedaVuelto = exp.getVuelto();
-                if(monedaVuelto == null) {
-                    t = false;
-                    break;
-                } else {
-                    vuelto += monedaVuelto.getValor();
-                }
-            }
+            exp.comprarBebida(m, cualBebida);
             
         } catch(PagoIncorrectoException incorrecto) {
             System.out.println(incorrecto.getMessage()); //no estoy seguro de qué poner aquí, hay que probar el getMessage
@@ -52,6 +40,19 @@ public class Comprador {
     }
     public void getBebida() {
         //para retirar la bebida del deposito
+    }
+    public void getVuelto() {
+            vuelto = 0;
+            Moneda monedaVuelto;
+            Boolean t = true;
+             while(t) {
+                monedaVuelto = exp.getVuelto();
+                if(monedaVuelto == null) {
+                    t = false;
+                } else {
+                    vuelto += monedaVuelto.getValor();
+                }
+            }
     }
     public int cuantoVuelto() {
         return vuelto;
