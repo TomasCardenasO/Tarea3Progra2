@@ -8,7 +8,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Expendedor{
-    private Deposito depositoFanta;
+    public Deposito depositoFanta;
     private Deposito depositoSprite;
     private Deposito depositoCocaCola;
     private DepositoDeVuelto depositoVuelto;
@@ -127,6 +127,26 @@ public class Expendedor{
         g.setColor (new Color(0,247,255,100));
         g.fillRect(x+20,y+20,210,370);
         g.setColor(Color.gray);
+        g.fillRect(x + 90, y + 410, 70, 90);
+        g.fillRect(x+290,y+200,20,50);
+        g.fillRect(x+260,y+300,70,30);
+        g.setColor(Color.black);
+        g.fillRect(x+295,y+210,10,30);
+        g.drawImage(banner, x+5, y+510, 360, 85,null);
+        if(depositoBebida != null) {
+            depositoBebida.paint(g);   
+        }
+    }
+    public void painted(Graphics g) {
+        banner = new ImageIcon(getClass().getResource("/Imagenes/BannerCocaCola.png")).getImage();
+        g.setColor(Color.black);
+        g.fillRect(x, y, 440, 690);
+        depositoFanta.painted(g);
+        depositoSprite.painted(g);
+        depositoCocaCola.painted(g);
+        g.setColor (new Color(0,247,255,100));
+        g.fillRect(x+20,y+20,210,370);
+        g.setColor(Color.blue);
         g.fillRect(x + 90, y + 410, 70, 90);
         g.fillRect(x+290,y+200,20,50);
         g.fillRect(x+260,y+300,70,30);

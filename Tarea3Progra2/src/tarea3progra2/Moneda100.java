@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Moneda100 extends Moneda { 
+    int valor = 100;
     public Moneda100(int serie, int x, int y) {
         super(serie, x, y);
     }
