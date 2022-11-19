@@ -63,6 +63,11 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         Boton botonRetirar = new Boton("Retirar", this);
         botonRetirar.setBounds(10,480,80,30);
         this.add(botonRetirar);
+        
+        this.setLayout(null);
+        Boton botonRetirarVuelto = new Boton("Retirar Vuelto", this);
+        botonRetirarVuelto.setBounds(480,340,120,30);
+        this.add(botonRetirarVuelto);
     } 
     private class Boton extends JButton implements MouseListener {
         private int x;
@@ -92,6 +97,9 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
             }
             else if(s.equals("Retirar") == true){
                 x = 7;
+            }
+            else if(s.equals("Retirar Vuelto") == true) {
+                x = 8;
             }
         }
         public void mouseClicked(MouseEvent e) {
@@ -130,6 +138,10 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
             }
             else if(x == 7) {
                 com.getBebida();
+                panel.repaint();
+            }
+            else if(x == 8) {
+                com.getVuelto();
                 panel.repaint();
             }
             

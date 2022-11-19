@@ -12,6 +12,7 @@ public class Comprador {
     private Image mano;
     private Image manoizq;
     public Bebida bebida;
+    private Monedero monedero;
     Moneda m;
     Expendedor exp;
     
@@ -19,6 +20,7 @@ public class Comprador {
     public Comprador(Expendedor exp) {
         m = null;
         this.exp = exp;
+        monedero = new Monedero(1150, 450);
     }
     public void comprar(int cualBebida) {
         try {
@@ -58,7 +60,7 @@ public class Comprador {
         if(exp.depositoBebida != null) {
             bebida = exp.depositoBebida;
             exp.depositoBebida = null;
-            bebida.x = 850;
+            bebida.x = 580;
             bebida.y = 500;
         }
     }
@@ -71,6 +73,7 @@ public class Comprador {
                 if(monedaVuelto == null) {
                     t = false;
                 } else {
+                    monedero.addMoneda(monedaVuelto);
                     vuelto += monedaVuelto.getValor();
                 }
             }
@@ -86,7 +89,7 @@ public class Comprador {
         g.drawImage(mano, 800, 400, 400, 400,null);
         manoizq = new ImageIcon(getClass().getResource("/Imagenes/DoomHandLeft.png")).getImage();
         g.drawImage(manoizq, 300, 400, 400, 400,null);
-
+        monedero.paint(g);
        
         if(m != null) {
             m.paint(g);

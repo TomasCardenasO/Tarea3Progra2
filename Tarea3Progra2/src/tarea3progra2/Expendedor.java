@@ -11,7 +11,7 @@ public class Expendedor{
     public Deposito depositoFanta;
     private Deposito depositoSprite;
     private Deposito depositoCocaCola;
-    private DepositoDeVuelto depositoVuelto;
+    public DepositoDeVuelto depositoVuelto;
     private DepositoDeVuelto depositoTragaMonedas;
     public Bebida depositoBebida;
     private int precioBebidas;
@@ -24,8 +24,8 @@ public class Expendedor{
         depositoFanta = new Deposito(this.x + 20, this.y + 20);
         depositoSprite= new Deposito(this.x + 90,this.y + 20);
         depositoCocaCola = new Deposito(this.x + 160,this.y + 20);
-        depositoVuelto = new DepositoDeVuelto();
-        depositoTragaMonedas = new DepositoDeVuelto();
+        depositoVuelto = new DepositoDeVuelto(this.x + 250, this.y + 300);
+        depositoTragaMonedas = new DepositoDeVuelto(0,0);
         for(int i = 0; i < numBebidas; i++) {
             Fanta f = new Fanta(i, 0, 0);
             depositoFanta.addBebida(f);
@@ -127,12 +127,12 @@ public class Expendedor{
         depositoFanta.paint(g);
         depositoSprite.paint(g);
         depositoCocaCola.paint(g);
+        depositoVuelto.paint(g);
         g.setColor (new Color(0,247,255,100));
         g.fillRect(x+20,y+20,210,370);
         g.setColor(Color.gray);
         g.fillRect(x + 90, y + 410, 70, 90);
         g.fillRect(x+290,y+200,20,50);
-        g.fillRect(x+260,y+300,70,30);
         g.setColor(Color.black);
         g.fillRect(x+295,y+210,10,30);
         g.drawImage(banner, x+5, y+510, 360, 85,null);
@@ -147,6 +147,7 @@ public class Expendedor{
         depositoFanta.painted(g);
         depositoSprite.painted(g);
         depositoCocaCola.painted(g);
+        depositoVuelto.paint(g);
         g.setColor (new Color(0,247,255,100));
         g.fillRect(x+20,y+20,210,370);
         g.setColor(Color.blue);

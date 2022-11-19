@@ -44,7 +44,6 @@ public class Deposito {
 
     }
     public void painted(Graphics g) {
-        
         g.setColor(Color.gray);
         g.fillRect(x, y, 70, 370);
         g.setColor(Color.black);
@@ -58,8 +57,5 @@ public class Deposito {
                 alturaLata -= 90;
             }
         }
-     
-        
-
     }
 }
