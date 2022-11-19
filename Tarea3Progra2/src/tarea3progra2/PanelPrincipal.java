@@ -19,12 +19,16 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     } 
     public void paint(Graphics g) {
         super.paint(g);
+<<<<<<< HEAD
         if(com.m == null){
             g.drawString("Amarillo = 100$, Gris = 500$, Verde = 1000$.", 10, Ventana.largo - 50);
 
         }else{
             g.drawString("Amarillo = 100$, Gris = 500$, Verde = 1000$. Moneda actual:" + com.m.getValor(), 10, Ventana.largo - 50);
         }
+=======
+        g.drawString("Amarillo = 100$, Naranjo = 400$, Gris = 500$, Verde = 1000$.", 10, Ventana.largo - 50);
+>>>>>>> 13da331f96d95de7b2567d609299967092b2513e
         exp.paint(g);
         com.paint(g);
     }
@@ -66,7 +70,10 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     } 
     private class Boton extends JButton implements MouseListener {
         private int x;
+<<<<<<< HEAD
         private int y = 1;
+=======
+>>>>>>> 13da331f96d95de7b2567d609299967092b2513e
         private PanelPrincipal panel;
         public Boton(String s, PanelPrincipal panel) {
             super(s);
@@ -109,6 +116,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
                 panel.repaint();
             }
             else if(x == 4){
+<<<<<<< HEAD
                 com.Takemoney100(y,850,500); //Hay que poner el numero de serie de las monedas en random
                 panel.repaint();
                 System.out.println(com.m.getValor());
@@ -126,6 +134,23 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
                 panel.repaint();
                 System.out.println(com.m.getValor());
                 this.y = y +1;
+=======
+                com.Takemoney100(2,850,500); //Hay que poner el numero de serie de las monedas en random
+                panel.repaint();
+                System.out.println(com.m.getValor());
+
+            }
+            else if(x == 5){
+                com.Takemoney500(3,850,500);
+                panel.repaint();
+                System.out.println(com.m.getValor());
+
+            }
+            else if(x == 6){
+                com.Takemoney1000(4,850,500);
+                panel.repaint();
+                System.out.println(com.m.getValor());
+>>>>>>> 13da331f96d95de7b2567d609299967092b2513e
 
             }
             else if(x == 7) {

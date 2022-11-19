@@ -3,12 +3,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Moneda1000 extends Moneda {
-    int valor = 1000;
+    private int valor = 1000;
     public Moneda1000(int serie, int x, int y) {
         super(serie, x, y);
     }
     public int getValor() {
-        return 1000;
+        return valor;
     }
     public void paint(Graphics g) {
         g.setColor(Color.green);

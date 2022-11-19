@@ -10,7 +10,10 @@ public class Comprador {
     private String queBebio;
     private int vuelto;
     private Image mano;
+<<<<<<< HEAD
     private Image manoizq;
+=======
+>>>>>>> 13da331f96d95de7b2567d609299967092b2513e
     public Bebida bebida;
     Moneda m;
     Expendedor exp;
@@ -84,10 +87,13 @@ public class Comprador {
     public void paint(Graphics g){
         mano = new ImageIcon(getClass().getResource("/Imagenes/DoomHand.png")).getImage();
         g.drawImage(mano, 800, 400, 400, 400,null);
+<<<<<<< HEAD
         manoizq = new ImageIcon(getClass().getResource("/Imagenes/DoomHandLeft.png")).getImage();
         g.drawImage(manoizq, 300, 400, 400, 400,null);
 
        
+=======
+>>>>>>> 13da331f96d95de7b2567d609299967092b2513e
         if(m != null) {
             m.paint(g);
         }
