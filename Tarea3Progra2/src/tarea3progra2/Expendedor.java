@@ -13,7 +13,7 @@ public class Expendedor{
     private Deposito depositoCocaCola;
     private DepositoDeVuelto depositoVuelto;
     private DepositoDeVuelto depositoTragaMonedas;
-    private Bebida depositoBebida;
+    public Bebida depositoBebida;
     private int precioBebidas;
     public int x, y;
     private Image banner;
@@ -64,6 +64,7 @@ public class Expendedor{
                         depositoVuelto.addMoneda(m);
                         throw new PagoInsuficienteException("Pago insuficiente");
                     }
+                    break;
                 case 2:
                     if(m.getValor() >= precioBebidas) {
                         b = depositoSprite.getBebida();
@@ -85,6 +86,7 @@ public class Expendedor{
                         depositoVuelto.addMoneda(m);
                         throw new PagoInsuficienteException("Pago insuficiente");
                     }
+                    break;
                 case 3:
                     if(m.getValor() >= precioBebidas) {
                         b = depositoCocaCola.getBebida();
@@ -106,6 +108,7 @@ public class Expendedor{
                         depositoVuelto.addMoneda(m);
                         throw new PagoInsuficienteException("Pago insuficiente");
                     }
+                    break;
                 default:
                     depositoVuelto.addMoneda(m);
                     throw new NoHayBebidaException("Boton no valido");

@@ -10,75 +10,68 @@ import java.awt.event.MouseListener;
 public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana 
     private Expendedor exp; 
     private Comprador com;
-    private Moneda100 moneda100;
-    private Moneda400 moneda400;
-    private Moneda500 moneda500;
-    private Moneda1000 moneda1000;
-    private Moneda0 moneda0;
-    Graphics g;
  
     public PanelPrincipal() { 
+        this.setBackground(Color.white);
+        Botones();
         exp = new Expendedor(100, 30, 5, 400);
         com = new Comprador(exp);
-        moneda100 = new Moneda100(4, 50, 200);
-        moneda400 = new Moneda400(1, 50, 250);
-        moneda500 = new Moneda500(7, 50, 300);
-        moneda1000 = new Moneda1000(8, 50, 440); 
-        moneda0 = new Moneda0(0,0,0);
-        this.setBackground(Color.white); 
-        Botones();
-        com.setMoneda(moneda400);
     } 
     public void paint(Graphics g) {
-        this.g = g;
         super.paint(g);
-        g.drawString("Amarillo = 100$, Naranjo = 400$, Gris = 500$, Verde = 1000$." + com.m.valor, 10, Ventana.largo - 50);
+        if(com.m == null){
+            g.drawString("Amarillo = 100$, Gris = 500$, Verde = 1000$.", 10, Ventana.largo - 50);
+
+        }else{
+            g.drawString("Amarillo = 100$, Gris = 500$, Verde = 1000$. Moneda actual:" + com.m.getValor(), 10, Ventana.largo - 50);
+        }
         exp.paint(g);
         com.paint(g);
-        moneda100.paint(g);
-        moneda400.paint(g);
-        moneda500.paint(g);
-        moneda1000.paint(g);
-    }
-    public void repaint() {
-        
     }
     public void Botones(){
         this.setLayout(null);
-        Boton botonFanta = new Boton("Fanta");
+        Boton botonFanta = new Boton("Fanta", this);
         botonFanta.setBounds(1000,100,100,50);
         this.add(botonFanta);
       
         this.setLayout(null);
-        Boton botonSprite = new Boton("Sprite");
+        Boton botonSprite = new Boton("Sprite", this);
         botonSprite.setBounds(1000,150,100,50);
         this.add(botonSprite);
         
         this.setLayout(null);
-        Boton botonCoca = new Boton("CocaCola");
+        Boton botonCoca = new Boton("CocaCola", this);
         botonCoca.setBounds(1000,200,100,50);
         this.add(botonCoca);
         
         this.setLayout(null);
-        Boton boton100 = new Boton("100");
+        Boton boton100 = new Boton("100", this);
         boton100.setBounds(1000,300,100,50);
         this.add(boton100);
       
         this.setLayout(null);
-        Boton boton500 = new Boton("500");
+        Boton boton500 = new Boton("500", this);
         boton500.setBounds(1000,350,100,50);
         this.add(boton500);
         
         this.setLayout(null);
-        Boton boton1000 = new Boton("1000");
+        Boton boton1000 = new Boton("1000", this);
         boton1000.setBounds(1000,400,100,50);
         this.add(boton1000);
+        
+        this.setLayout(null);
+        Boton botonRetirar = new Boton("Retirar", this);
+        botonRetirar.setBounds(10,480,80,30);
+        this.add(botonRetirar);
     } 
     private class Boton extends JButton implements MouseListener {
         private int x;
-        public Boton(String s) {
+        private int y = 1;
+        private PanelPrincipal panel;
+        public Boton(String s, PanelPrincipal panel) {
             super(s);
             this.addMouseListener(this);
+            this.panel = panel;
             if(s.equals("Fanta") == true){
                 x = 1;
             }
@@ -97,38 +90,47 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
             else if(s.equals("1000") == true){
                 x = 6;
             }
+            else if(s.equals("Retirar") == true){
+                x = 7;
+            }
         }
         public void mouseClicked(MouseEvent e) {
             if(x == 1){
                 com.comprar(1);
-                this.repaint();
+                panel.repaint();
+                
             }
             else if(x == 2){
                 com.comprar(2);
-                this.repaint();
+                panel.repaint();
             }
             else if(x == 3){
                 com.comprar(3);
-                this.repaint();
+                panel.repaint();
             }
             else if(x == 4){
-                com.Takemoney100(2,0,0);
-                this.repaint();
-                System.out.println(com.m.valor);
-
+                com.Takemoney100(y,850,500); //Hay que poner el numero de serie de las monedas en random
+                panel.repaint();
+                System.out.println(com.m.getValor());
+                this.y = y +1;
             }
             else if(x == 5){
-                com.Takemoney500(3,0,0);
-                this.repaint();
-                System.out.println(com.m.valor);
+                com.Takemoney500(y,850,500);
+                panel.repaint();
+                System.out.println(com.m.getValor());
+                this.y = y +1;
 
             }
             else if(x == 6){
-                com.Takemoney1000(4,0,0);
-                this.repaint();
-                System.out.println(com.m.valor);
-                g.drawString("Amarillo = 100$, Naranjo = 400$, Gris = 500$, Verde = 1000$." + com.m.valor, 100, Ventana.largo - 50);
+                com.Takemoney1000(y,850,500);
+                panel.repaint();
+                System.out.println(com.m.getValor());
+                this.y = y +1;
 
+            }
+            else if(x == 7) {
+                com.getBebida();
+                panel.repaint();
             }
             
         }
